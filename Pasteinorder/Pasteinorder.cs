@@ -8,6 +8,7 @@ namespace Pasteinorder
     {
         int addNO = 0;
         int setNO = 0;
+        int loopNO = 0;
         bool show = false;
         public Pasteinorder()
         {
@@ -90,8 +91,18 @@ namespace Pasteinorder
                             {
                                 Clipboard.SetText(dataGridView1.Rows[setNO].Cells[1].Value.ToString());
                                 SendKeys.Send("^v");
-                                setNO++; 
+                                setNO++;
                                 show = false;
+
+                                //如果启用循环并且当前序号大于列表全部数量，则判断循环次数
+                                if (enable.Checked && setNO >= dataGridView1.RowCount)
+                                {
+                                    if (loopNO > 1)
+                                    {
+                                        setNO = 0;
+                                        loopNO--;
+                                    }
+                                }
                                 no.Text = Convert.ToString(setNO);
                             }
                             else
@@ -164,6 +175,12 @@ namespace Pasteinorder
         private void textChanged(object sender, EventArgs e)
         {
             setNO = Convert.ToInt32(no.Text);
+        }
+
+        private void enable_Click(object sender, EventArgs e)
+        {
+            loopNO = (int)loop.Value;
+            if (setNO >= dataGridView1.RowCount) setNO = 0;
         }
     }
 }

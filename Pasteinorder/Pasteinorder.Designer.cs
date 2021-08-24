@@ -48,9 +48,13 @@ namespace Pasteinorder
             this.no = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.OpenB = new System.Windows.Forms.Button();
+            this.loop = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.enable = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loop)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -71,7 +75,7 @@ namespace Pasteinorder
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(266, 250);
+            this.dataGridView1.Size = new System.Drawing.Size(266, 274);
             this.dataGridView1.TabIndex = 0;
             // 
             // SN
@@ -101,7 +105,7 @@ namespace Pasteinorder
             this.groupBox1.Controls.Add(this.SelectpathB);
             this.groupBox1.Location = new System.Drawing.Point(277, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(145, 100);
+            this.groupBox1.Size = new System.Drawing.Size(152, 100);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "导入清空";
@@ -109,7 +113,7 @@ namespace Pasteinorder
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(56, 77);
+            this.label4.Location = new System.Drawing.Point(58, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 12);
             this.label4.TabIndex = 6;
@@ -117,7 +121,7 @@ namespace Pasteinorder
             // 
             // EmptyB
             // 
-            this.EmptyB.Location = new System.Drawing.Point(84, 20);
+            this.EmptyB.Location = new System.Drawing.Point(88, 20);
             this.EmptyB.Name = "EmptyB";
             this.EmptyB.Size = new System.Drawing.Size(55, 23);
             this.EmptyB.TabIndex = 5;
@@ -127,7 +131,7 @@ namespace Pasteinorder
             // 
             // sep
             // 
-            this.sep.Location = new System.Drawing.Point(55, 49);
+            this.sep.Location = new System.Drawing.Point(57, 49);
             this.sep.Name = "sep";
             this.sep.Size = new System.Drawing.Size(84, 21);
             this.sep.TabIndex = 2;
@@ -143,7 +147,7 @@ namespace Pasteinorder
             // 
             // SelectpathB
             // 
-            this.SelectpathB.Location = new System.Drawing.Point(6, 20);
+            this.SelectpathB.Location = new System.Drawing.Point(8, 20);
             this.SelectpathB.Name = "SelectpathB";
             this.SelectpathB.Size = new System.Drawing.Size(72, 23);
             this.SelectpathB.TabIndex = 0;
@@ -153,6 +157,9 @@ namespace Pasteinorder
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.enable);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.loop);
             this.groupBox2.Controls.Add(this.keyText);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.condition);
@@ -162,14 +169,14 @@ namespace Pasteinorder
             this.groupBox2.Controls.Add(this.OpenB);
             this.groupBox2.Location = new System.Drawing.Point(277, 111);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(145, 144);
+            this.groupBox2.Size = new System.Drawing.Size(152, 168);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "操作状态";
             // 
             // keyText
             // 
-            this.keyText.Location = new System.Drawing.Point(55, 46);
+            this.keyText.Location = new System.Drawing.Point(57, 46);
             this.keyText.Name = "keyText";
             this.keyText.Size = new System.Drawing.Size(84, 21);
             this.keyText.TabIndex = 6;
@@ -188,16 +195,16 @@ namespace Pasteinorder
             // 
             // condition
             // 
-            this.condition.Location = new System.Drawing.Point(6, 99);
+            this.condition.Location = new System.Drawing.Point(6, 125);
             this.condition.Name = "condition";
-            this.condition.Size = new System.Drawing.Size(133, 42);
+            this.condition.Size = new System.Drawing.Size(139, 36);
             this.condition.TabIndex = 4;
             this.condition.Text = "未运行！";
             this.condition.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CloseB
             // 
-            this.CloseB.Location = new System.Drawing.Point(75, 73);
+            this.CloseB.Location = new System.Drawing.Point(79, 99);
             this.CloseB.Name = "CloseB";
             this.CloseB.Size = new System.Drawing.Size(64, 23);
             this.CloseB.TabIndex = 3;
@@ -207,7 +214,7 @@ namespace Pasteinorder
             // 
             // no
             // 
-            this.no.Location = new System.Drawing.Point(55, 21);
+            this.no.Location = new System.Drawing.Point(57, 21);
             this.no.Name = "no";
             this.no.Size = new System.Drawing.Size(84, 21);
             this.no.TabIndex = 2;
@@ -226,7 +233,7 @@ namespace Pasteinorder
             // 
             // OpenB
             // 
-            this.OpenB.Location = new System.Drawing.Point(6, 73);
+            this.OpenB.Location = new System.Drawing.Point(8, 99);
             this.OpenB.Name = "OpenB";
             this.OpenB.Size = new System.Drawing.Size(64, 23);
             this.OpenB.TabIndex = 0;
@@ -234,18 +241,50 @@ namespace Pasteinorder
             this.OpenB.UseVisualStyleBackColor = true;
             this.OpenB.Click += new System.EventHandler(this.OpenB_Click);
             // 
+            // loop
+            // 
+            this.loop.Location = new System.Drawing.Point(57, 72);
+            this.loop.Name = "loop";
+            this.loop.Size = new System.Drawing.Size(40, 21);
+            this.loop.TabIndex = 7;
+            this.loop.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 76);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "循环 :";
+            // 
+            // enable
+            // 
+            this.enable.AutoSize = true;
+            this.enable.Location = new System.Drawing.Point(100, 74);
+            this.enable.Name = "enable";
+            this.enable.Size = new System.Drawing.Size(48, 16);
+            this.enable.TabIndex = 9;
+            this.enable.Text = "启用";
+            this.enable.UseVisualStyleBackColor = true;
+            this.enable.Click += new System.EventHandler(this.enable_Click);
+            // 
             // Pasteinorder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 261);
+            this.ClientSize = new System.Drawing.Size(434, 281);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(450, 300);
-            this.MinimumSize = new System.Drawing.Size(450, 300);
+            this.MaximumSize = new System.Drawing.Size(450, 320);
+            this.MinimumSize = new System.Drawing.Size(450, 320);
             this.Name = "Pasteinorder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " 顺序粘贴 [吾爱破解_viot]";
@@ -254,6 +293,7 @@ namespace Pasteinorder
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loop)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -277,6 +317,9 @@ namespace Pasteinorder
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox keyText;
+        private System.Windows.Forms.CheckBox enable;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown loop;
     }
 }
 
